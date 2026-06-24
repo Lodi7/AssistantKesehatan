@@ -1,33 +1,33 @@
 import streamlit as st
 from inference import chat_inference
 
-st.set_page_config(page_title="Asisten Kesehatan Digital", page_icon="🩺")
-st.title("🩺 Asisten Kesehatan Lodi Health's")
+st.set_page_config(page_title="Asisten Kesehatan Digital")
+st.title("Asisten Kesehatan Lodi Health's")
 
 st.markdown("""
-## Selamat datang di Asisten Kesehatan Lodi Health's! 👋
+## Selamat datang di Asisten Kesehatan Lodi Health's!
 
 Kamu bisa:
 
-- 💬 **Tanya gejala atau keluhan kesehatan**  
-- 🧑‍⚕️ **Cari dokter** (sebutkan spesialis)
-- 🏥 **Temukan rumah sakit** (sebutkan kota/provinsi)  
-- 📰 **Baca berita kesehatan terbaru**
+- **Tanya gejala atau keluhan kesehatan**  
+- **Cari dokter** (sebutkan spesialis)
+- **Temukan rumah sakit** (sebutkan kota/provinsi)  
+- **Baca berita kesehatan terbaru**
 
 ---
 
-ℹ️ *Berikan pertanyaan yang jelas dan spesifik*  
+*Berikan pertanyaan yang jelas dan spesifik*  
 Contoh: `rumah sakit di Surabaya`
 
-🛠️ *Catatan: Sistem ini masih dalam tahap pengembangan dan belum sepenuhnya otomatis. Mohon maaf jika terdapat kekeliruan atau keterbatasan.*
+*Catatan: Sistem ini masih dalam tahap pengembangan dan belum sepenuhnya otomatis. Mohon maaf jika terdapat kekeliruan atau keterbatasan.*
 
-> 🤖 Asisten ini memberi info awal berbasis AI  
-> ⚠️ Bukan pengganti diagnosis atau konsultasi dokter
+> Asisten ini memberi info awal berbasis AI  
+> Bukan pengganti diagnosis atau konsultasi dokter
 """)
 
 with st.sidebar:
-    st.header("⚙️ Pengaturan")
-    if st.button("🔄 Reset Percakapan"):
+    st.header("Pengaturan")
+    if st.button("Reset Percakapan"):
         st.session_state.messages = []
         st.rerun()
 
@@ -66,8 +66,8 @@ if prompt:
                     with col2:
                         st.markdown(f"""
 **{doc['name']}**  
-📚 *{doc['specialization']}*  
-🏥 {doc['hospital']}  
+*{doc['specialization']}*  
+{doc['hospital']}  
 """)
                     st.markdown("---")
 
@@ -87,7 +87,7 @@ if prompt:
 
     except Exception as e:
         st.error("Maaf, terjadi kesalahan saat memproses permintaan Anda.")
-        print(f"❌ Error pada inference: {e}")
+        print(f"Error pada inference: {e}")
 
 
 #app.py 

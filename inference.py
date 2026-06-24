@@ -75,7 +75,7 @@ def chat_inference(prompt):
         else:
             doctors = get_doctor_recommendations(prompt)
     
-    # 🔍 Validasi data dokter
+    # Validasi data dokter
         if not doctors or not all("name" in d and "specialization" in d and "hospital" in d for d in doctors):
             return "Maaf, kami belum dapat memahami permintaan Anda sepenuhnya atau informasi tersebut belum tersedia dalam sistem kami. Silakan coba jelaskan kembali dengan lebih spesifik."
 
@@ -89,9 +89,9 @@ def chat_inference(prompt):
         hospital_text = "Berikut daftar rumah sakit yang relevan:\n\n"
         for rs in hospitals:
             hospital_text += f"""
-🏥 **{rs['name']}**  
-📍 **{rs['region']}**              
-☎️ {rs.get('phone', 'N/A')}
+**{rs['name']}**  
+**{rs['region']}**              
+{rs.get('phone', 'N/A')}
 
 ---
 """
